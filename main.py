@@ -20,7 +20,7 @@ def processCommand(c):
         speak("Sorry, I didn’t understand that command.")
 
 if __name__ == "__main__":
-    speak("Initializing Jarvis...")
+    speak("Initializing den den...")
 
     while True:
         r = recognizer
@@ -29,14 +29,14 @@ if __name__ == "__main__":
         try:
             with sr.Microphone() as source:
                 r.adjust_for_ambient_noise(source, duration=0.3)
-                print("Listening for 'Jarvis'...")
+                print("Listening den den'...")
                 audio = r.listen(source, timeout=10, phrase_time_limit=5)
 
             word = r.recognize_google(audio)
             print(f"You said (raw): {repr(word)}")
             # print("You said:", word)
 
-            if "jarvis" in word.lower():
+            if "den den" in word.lower():
                 print("Wake word detected!")
                 speak("Yes?")
                 engine.stop()  # Ensure speech is flushed
@@ -44,7 +44,7 @@ if __name__ == "__main__":
                 time.sleep(1)  # Wait 1 second before listening again
                 
                 with sr.Microphone() as source:
-                    print("Jarvis active... listening for command...")
+                    print("den den active... listening for command...")
                     r.adjust_for_ambient_noise(source, duration=0.3)
                     audio = r.listen(source, timeout=10, phrase_time_limit=5)
                     command = r.recognize_google(audio)
